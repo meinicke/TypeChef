@@ -449,7 +449,7 @@ class SingleBDDFeatureExpr(id: Int) extends BDDFeatureExpr(lookupFeatureBDD(id))
  */
 private[bdd] object FExprBuilder {
 
-    val bddCacheSize = Integer.valueOf(System.getProperty("bddVarNum", "100000"))
+    val bddCacheSize = Integer.valueOf(System.getProperty("bddCacheSize", "100000"))
     var bddValNum: Int = 524288 / 2
     var bddVarNum = Integer.valueOf(System.getProperty("bddVarNum", "100"))
     var maxFeatureId = 0
