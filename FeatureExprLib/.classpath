@@ -2,11 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/scala"/>
 	<classpathentry kind="src" path="src/test/scala"/>
-	<classpathentry exported="true" kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
-	<classpathentry kind="lib" path="lib_managed/scala_2.8.1/test/scalacheck_2.8.1-1.8.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.sat4j.core"/>
+	<classpathentry kind="lib" path="lib/org.sat4j.core-2.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jbddi-core-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/scalacheck_2.12-1.14.0.jar"/>
+	<classpathentry kind="lib" path="lib/scala-parser-combinators_2.12-1.1.1.jar"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

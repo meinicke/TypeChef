@@ -449,21 +449,21 @@ class SingleBDDFeatureExpr(id: Int) extends BDDFeatureExpr(lookupFeatureBDD(id))
  */
 private[bdd] object FExprBuilder {
 
-
-    val bddCacheSize = 100000
+    val bddCacheSize = Integer.valueOf(System.getProperty("bddVarNum", "100000"))
     var bddValNum: Int = 524288 / 2
-    var bddVarNum = 100
+    var bddVarNum = Integer.valueOf(System.getProperty("bddVarNum", "100"))
     var maxFeatureId = 0
     //start with one, so we can distinguish -x and x for sat solving and tostring
+    var factory = System.getProperty("bddFactory", "j")
     System.setProperty("bdd", "j")
     var bddFactory: BDDFactory = null
     try {
-        bddFactory = BDDFactory.init("j", bddValNum, bddCacheSize)
+        bddFactory = BDDFactory.init(factory, bddValNum, bddCacheSize)
     } catch {
         case e: OutOfMemoryError =>
             println("running with low memory. consider increasing heap size.")
             bddValNum = 524288
-            bddFactory = BDDFactory.init("j", bddValNum, bddCacheSize)
+            bddFactory = BDDFactory.init(factory, bddValNum, bddCacheSize)
     }
     bddFactory.setIncreaseFactor(2) //200% increase each time
     bddFactory.setMaxIncrease(0) //no upper limit on increase size

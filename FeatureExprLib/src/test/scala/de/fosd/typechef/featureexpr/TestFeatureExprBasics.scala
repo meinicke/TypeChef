@@ -7,6 +7,7 @@ import org.junit.Test
 import FeatureExprFactory._
 
 class TestFeatureExprBasics extends TestCase {
+   
     def a = createDefinedExternal("a")
     def b = createDefinedExternal("b")
     def h = createDefinedExternal("h")
@@ -16,8 +17,11 @@ class TestFeatureExprBasics extends TestCase {
     //TAUTOLOGY
     def c = 3
     //CONTRADICTION
+    
+    FeatureExprFactory.setDefault(FeatureExprFactory.bdd)
 
     def check(x: FeatureExpr, f: Int = s) {
+      
         println(x)
         //        println("CNF: " + x.cnfExpr)
         //        println("DNF: " + x.dnfExpr)
