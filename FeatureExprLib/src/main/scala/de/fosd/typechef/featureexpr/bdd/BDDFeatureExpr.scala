@@ -450,12 +450,12 @@ class SingleBDDFeatureExpr(id: Int) extends BDDFeatureExpr(lookupFeatureBDD(id))
 private[bdd] object FExprBuilder {
 
     val bddCacheSize = Integer.valueOf(System.getProperty("bddCacheSize", "100000"))
-    var bddValNum: Int = 524288 / 2
+    var bddValNum: Int = Integer.valueOf(System.getProperty("bddValNum", Integer.toString(524288 / 2)))
     var bddVarNum = Integer.valueOf(System.getProperty("bddVarNum", "100"))
     var maxFeatureId = 0
     //start with one, so we can distinguish -x and x for sat solving and tostring
-    var factory = System.getProperty("bddFactory", "j")
-    System.setProperty("bdd", "j")
+    var factory = System.getProperty("bdd", "j")
+    System.setProperty("bdd", factory)
     var bddFactory: BDDFactory = null
     try {
         bddFactory = BDDFactory.init(factory, bddValNum, bddCacheSize)
